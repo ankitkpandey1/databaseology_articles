@@ -127,3 +127,4 @@ COUNT { int c = input(); unput(c);
  /* everything else */
 [ \t\n] /* whitespace */
 . { yyerror("mystery character '%c'", *yytext); }
+%%

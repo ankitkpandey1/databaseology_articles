@@ -72,6 +72,11 @@ void emit(char *s, ...);
 %token FORCE
 %token FROM
 %token FULLTEXT
+%token FSUBSTRING
+%token FTRIM
+%token FDATE_ADD
+%token FDATE_SUB
+%token FCOUNT
 %token GROUP
 %token HAVING
 %token IF
@@ -88,10 +93,12 @@ void emit(char *s, ...);
 %token LIMIT
 %token LONGBLOB
 %token LONGTEXT
+%token LONG
 %token MEDIUMBLOB
 %token MEDIUMINT
 %token MEDIUMTEXT
 %token NATURAL
+%token NUMBER
 %token NULLX
 %token ON
 %token ONDUPLICATE
@@ -117,14 +124,20 @@ void emit(char *s, ...);
 %token TINYBLOB
 %token TINYINT
 %token TINYTEXT
+%token TO 
+%token TRAILING
 %token UNIQUE
 %token UNSIGNED
 %token UPDATE
 %token USE
 %token USING
+%token UTC_DATE
+%token UTC_TIME
+%token UTC_TIMESTAMP
 %token VALUES
 %token VARBINARY
 %token VARCHAR
+%token VARYING
 %token WHEN
 %token WHERE
 %token WITH
@@ -616,6 +629,7 @@ yyerror(char *s, ...)
  fprintf(stderr, "\n");
 }
 
+int
 main(int argc, char **argv)
 {
  extern FILE *yyin;
@@ -630,4 +644,6 @@ main(int argc, char **argv)
  printf("SQL parse worked\n");
  else
  printf("SQL parse failed\n");
+
+ return 0;
 } /* main */

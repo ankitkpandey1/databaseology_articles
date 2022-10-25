@@ -10,7 +10,7 @@ myparser: parse.tab.o parse.o
 	${CC} -o $@ parse.tab.o parse.o
 parse.tab.c parse.tab.h: parse.y
 	${YACC} -vd parse.y
-scan.c: scan.l
+parse.c: scan.l
 	${LEX} -o $*.c $<
 parse.o: parse.c parse.tab.h
 .SUFFIXES: .pgm .l .y .c
