@@ -1,0 +1,5 @@
+parse.c
+*.o
+parse.tab.*
+myparser
+*.output
