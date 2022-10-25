@@ -1,16 +1,16 @@
-# Makefile for pmysql
+# Makefile for myparser
+# Make sure to use tab of indentation
 CC = cc -g
 LEX = flex
 YACC = bison
 CFLAGS = -DYYDEBUG=1
-PROGRAMS5 = pmysql
-all: ${PROGRAMS5}
-# chapter 5
-pmysql: pmysql.tab.o pmysql.o
- ${CC} -o $@ pmysql.tab.o pmysql.o
-pmysql.tab.c pmysql.tab.h: pmysql.y
- ${YACC} -vd pmysql.y
-pmysql.c: pmysql.l
- ${LEX} -o $*.c $<
-pmysql.o: pmysql.c pmysql.tab.h
+PROGRAMS = myparser
+all: ${PROGRAMS}
+myparser: parse.tab.o parse.o
+	${CC} -o $@ parse.tab.o parse.o
+parse.tab.c parse.tab.h: parse.y
+	${YACC} -vd parse.y
+scan.c: scan.l
+	${LEX} -o $*.c $<
+parse.o: parse.c parse.tab.h
 .SUFFIXES: .pgm .l .y .c
